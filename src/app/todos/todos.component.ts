@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { trigger, state, transition, style, animate } from '@angular/animations';
+import {
+  trigger,
+  state,
+  transition,
+  style,
+  animate
+} from '@angular/animations';
 
 @Component({
   selector: 'todos',
@@ -8,10 +14,8 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
   animations: [
     trigger('fade', [
       // state(),
-      transition('void => *', [
-        style( { opacity: 0 }),
-        animate(2000)
-      ])
+      transition('void => *', [style({ opacity: 0 }), animate(2000)]),
+      transition('* => void', [animate(2000, style({ opacity: 0 }))])
     ])
   ]
 })
@@ -19,7 +23,8 @@ export class TodosComponent {
   items: any[] = [
     'Wash the dishes',
     'Call the accountant',
-    'Apply for a car insurance'];
+    'Apply for a car insurance'
+  ];
 
   addItem(input: HTMLInputElement) {
     this.items.splice(0, 0, input.value);
