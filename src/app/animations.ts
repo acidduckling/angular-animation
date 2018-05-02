@@ -27,9 +27,16 @@ export let bouncOutLeftAnimation = animation(
   )
 );
 
+export let fadeInAnimation = animation(
+  [style({ opacity: 0 }), animate('{{ duration }} {{ easing }}')],
+  { params: { duration: '2s', easing: 'ease-out' } }
+);
+
+export let fadeOutAnimation = animation([animate(2000, style({ opacity: 0 }))]);
+
 export let fade = trigger('fade', [
-  state('void', style({ opacity: 0 })),
-  transition(':enter, :leave', [animate(2000)]) // void <=> *
+  transition(':enter', useAnimation(fadeInAnimation)),
+  transition(':leave', useAnimation(fadeOutAnimation))
 ]);
 
 export let slide = trigger('slide', [

@@ -7,7 +7,12 @@ import {
   style,
   keyframes
 } from '@angular/animations';
-import { fade, slide, bouncOutLeftAnimation } from '../animations';
+import {
+  fade,
+  slide,
+  bouncOutLeftAnimation,
+  fadeInAnimation
+} from '../animations';
 import { useAnimation } from '@angular/animations';
 
 @Component({
@@ -16,7 +21,10 @@ import { useAnimation } from '@angular/animations';
   styleUrls: ['./todos.component.css'],
   animations: [
     trigger('todoAnimation', [
-      transition(':enter', [style({ opacity: 0 }), animate(2000)]),
+      transition(
+        ':enter',
+        useAnimation(fadeInAnimation, { params: { duration: '500ms' } })
+      ),
       transition(':leave', [
         style({ backgroundColor: 'red' }),
         animate(1000),
