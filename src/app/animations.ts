@@ -3,7 +3,8 @@ import {
   state,
   transition,
   animate,
-  style
+  style,
+  keyframes
 } from '@angular/animations';
 
 export let fade = trigger('fade', [
@@ -17,6 +18,20 @@ export let slide = trigger('slide', [
     animate('500ms ease-out')
   ]),
   transition(':leave', [
-      animate('500ms ease-in', style({ transform: 'translateX(-100%)' }))
+    animate(
+      '500ms ease-in',
+      keyframes([
+        style({
+          offset: 0.2,
+          opacity: 1,
+          transform: 'translateX(20px)'
+        }),
+        style({
+          offset: 1,
+          opacity: 0,
+          transform: 'translateX(-100%)'
+        })
+      ])
+    )
   ])
 ]);
