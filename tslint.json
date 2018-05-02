@@ -29,11 +29,7 @@
       140
     ],
     "member-access": false,
-    "member-ordering": [
-      true,
-      "static-before-instance",
-      "variables-before-functions"
-    ],
+    "member-ordering": true,
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [
@@ -80,7 +76,7 @@
     ],
     "radix": true,
     "semicolon": [
-      "always"
+      true
     ],
     "triple-equals": [
       true,
@@ -114,8 +110,8 @@
       "camelCase"
     ],
     "component-selector": [
-      true,
-      "element"
+      false,
+      "element",
     ],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
