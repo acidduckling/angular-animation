@@ -8,7 +8,8 @@ import {
   keyframes,
   query,
   animateChild,
-  group
+  group,
+  stagger
 } from '@angular/animations';
 import {
   fade,
@@ -30,7 +31,7 @@ import { useAnimation } from '@angular/animations';
             style({ transform: 'translateY(-20px)' }),
             animate(1000)
           ]),
-          query('@todoAnimation', animateChild())
+          query('@todoAnimation', stagger(200, animateChild()))
         ])
       ])
     ]),
