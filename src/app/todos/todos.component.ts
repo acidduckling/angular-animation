@@ -5,7 +5,8 @@ import {
   transition,
   animate,
   style,
-  keyframes
+  keyframes,
+  query
 } from '@angular/animations';
 import {
   fade,
@@ -20,6 +21,12 @@ import { useAnimation } from '@angular/animations';
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css'],
   animations: [
+    trigger('todosAnimation', [
+      transition(':enter', [
+        query('h1', [style({ transform: 'translateY(-20px)' }), animate(1000)])
+      ])
+    ]),
+
     trigger('todoAnimation', [
       transition(
         ':enter',
