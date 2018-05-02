@@ -7,7 +7,8 @@ import {
   style,
   keyframes,
   query,
-  animateChild
+  animateChild,
+  group
 } from '@angular/animations';
 import {
   fade,
@@ -24,8 +25,13 @@ import { useAnimation } from '@angular/animations';
   animations: [
     trigger('todosAnimation', [
       transition(':enter', [
-        query('h1', [style({ transform: 'translateY(-20px)' }), animate(1000)]),
-        query('@todoAnimation', animateChild())
+        group([
+          query('h1', [
+            style({ transform: 'translateY(-20px)' }),
+            animate(1000)
+          ]),
+          query('@todoAnimation', animateChild())
+        ])
       ])
     ]),
 
